@@ -14,28 +14,73 @@ consulta con un profesional de la salud.
 """)
 
 # 🔎 Cargar el modelo
-with open('modelo_random_forest.pkl', 'rb') as file:
+with open('pipeline_random_forest.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # ⚖️ Crear formulario de entrada
 st.sidebar.header("Ingrese los datos del paciente")
-definir_entrada = lambda etiqueta, minimo, maximo, valor: st.sidebar.slider(etiqueta, minimo, maximo, valor)
+def bool_to_binary(respuesta):
+    return 1 if respuesta == "Sí" else 0
 
-HighBP = st.sidebar.selectbox("Presión Alta (HighBP)", [0, 1])
-HighChol = st.sidebar.selectbox("Colesterol Alto (HighChol)", [0, 1])
-CholCheck = st.sidebar.selectbox("Revisión de colesterol reciente (CholCheck)", [0, 1])
-BMI = definir_entrada("IMC (BMI)", 12, 98, 25)
-Stroke = st.sidebar.selectbox("Historial de ACV (Stroke)", [0, 1])
-HeartDiseaseorAttack = st.sidebar.selectbox("Enfermedad Cardíaca o Infarto", [0, 1])
-PhysActivity = st.sidebar.selectbox("Actividad física regular", [0, 1])
-HvyAlcoholConsump = st.sidebar.selectbox("Consumo excesivo de alcohol", [0, 1])
-GenHlth = definir_entrada("Estado general de salud (1=Excelente, 5=Malo)", 1, 5, 3)
-MentHlth = definir_entrada("Días con salud mental no buena (0-30)", 0, 30, 0)
-PhysHlth = definir_entrada("Días con salud física no buena (0-30)", 0, 30, 0)
-DiffWalk = st.sidebar.selectbox("Dificultad para caminar o subir escaleras", [0, 1])
-Age = definir_entrada("Grupo de edad (1-13)", 1, 13, 9)
-Education = definir_entrada("Nivel de educación (1-6)", 1, 6, 4)
-Income = definir_entrada("Nivel de ingresos (1-8)", 1, 8, 4)
+# 🏋️ Calcular BMI desde altura y peso
+peso = st.sidebar.number_input("Peso (kg)", min_value=30.0, max_value=200.0, value=70.0)
+altura = st.sidebar.number_input("Altura (cm)", min_value=100.0, max_value=220.0, value=170.0)
+BMI = round(peso / (altura / 100) ** 2, 2)
+st.sidebar.markdown(f"**IMC calculado:** {BMI}")
+
+# Entradas booleanas convertidas a binario
+HighBP = bool_to_binary(st.sidebar.selectbox("¿Presión arterial alta?", ["No", "Sí"]))
+HighChol = bool_to_binary(st.sidebar.selectbox("¿Colesterol alto?", ["No", "Sí"]))
+CholCheck = bool_to_binary(st.sidebar.selectbox("¿Se ha revisado el colesterol recientemente?", ["No", "Sí"]))
+Stroke = bool_to_binary(st.sidebar.selectbox("¿Ha sufrido un ACV (derrame cerebral)?", ["No", "Sí"]))
+HeartDiseaseorAttack = bool_to_binary(st.sidebar.selectbox("¿Tiene enfermedad cardíaca o ha sufrido un infarto?", ["No", "Sí"]))
+PhysActivity = bool_to_binary(st.sidebar.selectbox("¿Realiza actividad física regularmente?", ["No", "Sí"]))
+HvyAlcoholConsump = bool_to_binary(st.sidebar.selectbox("¿Consume alcohol en exceso?", ["No", "Sí"]))
+DiffWalk = bool_to_binary(st.sidebar.selectbox("¿Tiene dificultad para caminar o subir escaleras?", ["No", "Sí"]))
+
+# Salud general y días no saludables
+GenHlth = st.sidebar.slider("Estado general de salud (1=Excelente, 5=Malo)", 1, 5, 3)
+MentHlth = st.sidebar.slider("Días con salud mental no buena (0-30)", 0, 30, 0)
+PhysHlth = st.sidebar.slider("Días con salud física no buena (0-30)", 0, 30, 0)
+
+# 📅 Edad como número => clasificación
+edad_valor = st.sidebar.number_input("Edad (años)", min_value=18, max_value=100, value=35)
+if edad_valor < 25:
+    Age = 1
+elif edad_valor < 30:
+    Age = 2
+elif edad_valor < 35:
+    Age = 3
+elif edad_valor < 40:
+    Age = 4
+elif edad_valor < 45:
+    Age = 5
+elif edad_valor < 50:
+    Age = 6
+elif edad_valor < 55:
+    Age = 7
+elif edad_valor < 60:
+    Age = 8
+elif edad_valor < 65:
+    Age = 9
+elif edad_valor < 70:
+    Age = 10
+elif edad_valor < 75:
+    Age = 11
+elif edad_valor < 80:
+    Age = 12
+else:
+    Age = 13
+
+# 🎓 Nivel educativo (1=menor, 6=posgrado)
+ed_level = st.sidebar.selectbox("Nivel educativo", [
+    "Primaria incompleta", "Primaria completa", "Secundaria", "Técnico", "Universitario", "Posgrado"])
+Education = ["Primaria incompleta", "Primaria completa", "Secundaria", "Técnico", "Universitario", "Posgrado"].index(ed_level) + 1
+
+# 💼 Nivel de ingresos (1=bajo, 8=alto)
+income_level = st.sidebar.selectbox("Nivel de ingresos", [
+    "<10k", "10k-15k", "15k-20k", "20k-25k", "25k-35k", "35k-50k", "50k-75k", ">75k"])
+Income = ["<10k", "10k-15k", "15k-20k", "20k-25k", "25k-35k", "35k-50k", "50k-75k", ">75k"].index(income_level) + 1
 
 # 👥 Organizar los datos
 input_data = np.array([[
