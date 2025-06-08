@@ -1,13 +1,13 @@
 # requirements.txt para ejecutar la app de Streamlit (evaluador de riesgo de diabetes)
 
-streamlit==1.25.0
-scikit-learn==1.2.2
-xgboost==1.7.5
-numpy==1.24.3
-pandas==1.5.3
-matplotlib==3.7.1
-seaborn==0.12.2
-plotly==5.14.1
+streamlit
+scikit-learn
+xgboost
+numpy
+pandas
+matplotlib
+seaborn
+plotly
 
-# Para evitar advertencias en versiones recientes
-typing-extensions>=4.5.0
+# typing extensions
+typing-extensions
