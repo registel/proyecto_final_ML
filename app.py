@@ -14,7 +14,7 @@ consulta con un profesional de la salud.
 """)
 
 # 🔎 Cargar el modelo
-with open('pipeline_random_forest.pkl', 'rb') as file:
+with open('modelo_random_forest.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # ⚖️ Crear formulario de entrada
