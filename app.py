@@ -13,8 +13,13 @@ basándose en datos de salud y estilo de vida recopilados por los CDC (BRFSS 201
 consulta con un profesional de la salud.
 """)
 
+# Cargar scaler y modelo por separado
+with open('scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
+
+
 # 🔎 Cargar el modelo
-with open('pipeline_random_forest.pkl', 'rb') as file:
+with open('modelo_random_forest.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # ⚖️ Crear formulario de entrada
@@ -88,9 +93,12 @@ input_data = np.array([[
     DiffWalk, Age, Education, Income
 ]])
 
+# Escalar manualmente
+input_scaled = scaler.transform(input_data)
+
 # 🔍 Ejecutar predicción
 if st.sidebar.button("Evaluar Riesgo"):
-    proba = model.predict_proba(input_data)[0][1]  # Probabilidad clase 1
+    proba = model.predict_proba(input_scaled)[0][1]  # Probabilidad clase 1
     porcentaje = round(proba * 100, 2)
 
     st.subheader("Resultado de Evaluación")
