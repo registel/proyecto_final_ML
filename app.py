@@ -35,7 +35,6 @@ CholCheck = bool_to_binary(st.sidebar.selectbox("¿Se ha revisado el colesterol 
 Stroke = bool_to_binary(st.sidebar.selectbox("¿Ha sufrido un ACV (derrame cerebral)?", ["No", "Sí"]))
 HeartDiseaseorAttack = bool_to_binary(st.sidebar.selectbox("¿Tiene enfermedad cardíaca o ha sufrido un infarto?", ["No", "Sí"]))
 PhysActivity = bool_to_binary(st.sidebar.selectbox("¿Realiza actividad física regularmente?", ["No", "Sí"]))
-HvyAlcoholConsump = bool_to_binary(st.sidebar.selectbox("¿Consume alcohol en exceso?", ["No", "Sí"]))
 DiffWalk = bool_to_binary(st.sidebar.selectbox("¿Tiene dificultad para caminar o subir escaleras?", ["No", "Sí"]))
 
 # Salud general y días no saludables
@@ -85,7 +84,7 @@ Income = ["<10k", "10k-15k", "15k-20k", "20k-25k", "25k-35k", "35k-50k", "50k-75
 # 👥 Organizar los datos
 input_data = np.array([[
     HighBP, HighChol, CholCheck, BMI, Stroke, HeartDiseaseorAttack,
-    PhysActivity, HvyAlcoholConsump, GenHlth, MentHlth, PhysHlth,
+    PhysActivity, GenHlth, MentHlth, PhysHlth,
     DiffWalk, Age, Education, Income
 ]])
 
