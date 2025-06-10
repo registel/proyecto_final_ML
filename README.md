@@ -35,6 +35,9 @@ Se aplicaron técnicas como:
 
 ---
 
+## Enlace a los notebooks en google colab
+https://drive.google.com/drive/folders/1pSKcMJvg2Zy6ukXCXYS30mcRllxGPz1J?usp=sharing
+
 ## 🚀 Cómo Ejecutar
 
 1. Clona el repositorio:
