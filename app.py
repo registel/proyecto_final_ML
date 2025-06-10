@@ -2,14 +2,17 @@ import streamlit as st
 import pickle
 import numpy as np
 
+
+# 🏥 Título e introducción
+st.set_page_config(page_title="Evaluador de Riesgo de Diabetes", page_icon="🏥")
+
+
 # Autores del proyecto
 st.markdown(""" Autores del Proyecto:
 
 Carlos Alex Macias (Código: 22500208)
 Juan Camilo Peña (Código: 22501426) """)
 
-# 🏥 Título e introducción
-st.set_page_config(page_title="Evaluador de Riesgo de Diabetes", page_icon="🏥")
 st.title("Evaluador de Riesgo de Diabetes")
 st.markdown("""
 Esta aplicación estima el **riesgo de que una persona presente signos asociados a diabetes**
