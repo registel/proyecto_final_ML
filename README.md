@@ -1,4 +1,11 @@
+## 👨‍💻 Autores
 
+- **Carlos Alex Macias** — Código: 22500208  
+- **Juan Camilo Peña** — Código: 22501426
+
+Proyecto desarrollado como parte del curso **Machine Learning** para la Maestría en Inteligencia Artificial y Ciencia de Datos.
+
+---
 # 🩺 Evaluador de Riesgo de Diabetes con Machine Learning
 
 Este proyecto implementa un sistema de predicción de riesgo de diabetes utilizando algoritmos de Machine Learning y una interfaz web con Streamlit. El modelo ha sido entrenado con datos del BRFSS 2015 (CDC) y busca identificar personas con alta probabilidad de desarrollar diabetes, basándose en datos clínicos, demográficos y de estilo de vida.
@@ -76,14 +83,6 @@ Devuelve una probabilidad estimada de riesgo de diabetes acompañada de un mensa
 
 ---
 
-## 👨‍💻 Autores
-
-- **Carlos Alex Macias** — Código: 22500208  
-- **Juan Camilo Peña** — Código: 22501426
-
-Proyecto desarrollado como parte del curso **Machine Learning** para la Maestría en Inteligencia Artificial y Ciencia de Datos.
-
----
 
 ## 📄 Licencia
 
