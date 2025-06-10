@@ -8,10 +8,9 @@ st.set_page_config(page_title="Evaluador de Riesgo de Diabetes", page_icon="🏥
 
 
 # Autores del proyecto
-st.markdown(""" Autores del Proyecto:
+st.markdown("""
 
-Carlos Alex Macias (Código: 22500208)
-Juan Camilo Peña (Código: 22501426) """)
+<div style="background-color:#e0f7fa; padding:16px; border-radius:10px; border: 1px solid #b2ebf2;"> <h4 style="color:#00796b;">👨‍💻 <b>Autores del Proyecto</b></h4> <ul> <li><b>Carlos Alex Macias</b> <span style="color:#555;">(Código: 22500208)</span></li> <li><b>Juan Camilo Peña</b> <span style="color:#555;">(Código: 22501426)</span></li> </ul> </div> """, unsafe_allow_html=True)
 
 st.title("Evaluador de Riesgo de Diabetes")
 st.markdown("""
