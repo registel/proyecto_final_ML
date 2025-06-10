@@ -37,7 +37,8 @@ Se aplicaron técnicas como:
 
 ## 📂 Enlace a los notebooks en Google Colab
 
-https://drive.google.com/drive/folders/1pSKcMJvg2Zy6ukXCXYS30mcRllxGPz1J?usp=sharing
+[📎 Abrir carpeta en Google Drive](https://drive.google.com/drive/folders/1pSKcMJvg2Zy6ukXCXYS30mcRllxGPz1J?usp=sharing)
+
 
 ## 🚀 Cómo Ejecutar
 
