@@ -9,8 +9,26 @@ st.set_page_config(page_title="Evaluador de Riesgo de Diabetes", page_icon="🏥
 
 # Autores del proyecto
 st.markdown("""
-
-<div style="background-color:#e0f7fa; padding:16px; border-radius:10px; border: 1px solid #b2ebf2;"> <h4 style="color:#00796b;">👨‍💻 <b>Autores del Proyecto</b></h4> <ul> <li><b>Carlos Alex Macias</b> <span style="color:#555;">(Código: 22500208)</span></li> <li><b>Juan Camilo Peña</b> <span style="color:#555;">(Código: 22501426)</span></li> </ul> </div> """, unsafe_allow_html=True)
+<div style="
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #00796b;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+">
+  <h4 style="color:#004d40; margin-top: 0;">👨‍💻 <b>Autores del Proyecto</b></h4>
+  <ul style="list-style-type: none; padding-left: 0; margin: 10px 0 0 0;">
+    <li style="margin-bottom: 6px;">
+      <span style="font-weight: 600; color: #00695c;">Carlos Alex Macias</span> 
+      <span style="color: #555;">(Código: 22500208)</span>
+    </li>
+    <li>
+      <span style="font-weight: 600; color: #00695c;">Juan Camilo Peña</span> 
+      <span style="color: #555;">(Código: 22501426)</span>
+    </li>
+  </ul>
+</div>
+""", unsafe_allow_html=True)
 
 st.title("Evaluador de Riesgo de Diabetes")
 st.markdown("""
