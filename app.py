@@ -2,6 +2,12 @@ import streamlit as st
 import pickle
 import numpy as np
 
+# Autores del proyecto
+st.markdown(""" Autores del Proyecto:
+
+Carlos Alex Macias (Código: 22500208)
+Juan Camilo Peña (Código: 22501426) """)
+
 # 🏥 Título e introducción
 st.set_page_config(page_title="Evaluador de Riesgo de Diabetes", page_icon="🏥")
 st.title("Evaluador de Riesgo de Diabetes")
